@@ -1,0 +1,17 @@
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.username=java
+spring.datasource.password=1234
+
+spring.jpa.hibernate.ddl-auto=update
+
+spring.jpa.show-sql=true
+spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
+
+
+spring.application.name= LoginAPI
+spring.config.import= configserver:
+ 
+server.port= 6060
+  
+eureka.client.service-url.defaultZone: http://localhost:5000/eureka/

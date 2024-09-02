@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: APIGateWay
+  cloud:
+    gateway:
+      enabled: true
+      
+      routes[0]:
+         id: LoginAPI
+         uri: lb://LoginAPI
+         predicates[0]: Path:/login/**
+server:
+  port: 4040
+  

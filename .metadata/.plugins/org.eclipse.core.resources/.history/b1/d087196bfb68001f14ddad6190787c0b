@@ -1,0 +1,10 @@
+spring.application.name=ConfigServerWithExternalConfigurationFile
+server.port=9090
+#To Congigure external application.properties file in config server application
+#here we are linking git file to config server
+spring.cloud.config.server.git.uri=https://github.com/Premji9940/ConfigFileForConfigServer.git
+
+# to know the status of application  using health actuators
+management.endpoints.web.exposure.include= *
+management.endpoint.health.enabled=true
+management.endpoint.health.show-details=always

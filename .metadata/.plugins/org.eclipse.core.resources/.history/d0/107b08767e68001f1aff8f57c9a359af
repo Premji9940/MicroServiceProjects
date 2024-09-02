@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: LoginAPI
+server:
+  port: 6060
+  
+
+  client:
+    service-url:
+        default-zone: http://localhost:8090/eureka/
+      

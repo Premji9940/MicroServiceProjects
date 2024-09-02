@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: APIGateWay
+  cloud:
+    gateway:
+      enabled: true
+      
+      
+      
+      routes[0]:
+        id  : LOGINAPI
+        uri : http://locahost:6060
+        predicates[0]: Path=/login/**
+      
+#       routes[0]:
+#         id: LoginAPI
+#         uri: lb://LoginAPI
+#         predicates[0]: Path=/login/**
+#      routes[1]:
+#         id: REGISTERAPI
+#         uri: lb://REGISTERAPI
+#         predicates[0]: Path=/register/**
+         
+         
+management:
+  endpoint:
+    gateway:
+      enabled: true
+      
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      
+
+server:
+  port: 4040
+  

@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: CircuitBreakerRertryLogic
+server: 
+  port: 6060
+  
+resilience4j:
+  retry:
+    instances:
+      UserService:
+        max-attempts: 5
+        wait-duration: 10s
+  circuitbreaker:
+    instances:
+      UserService:
+        register-health-indicator: true
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state: 5s
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-size: 10
+        sliding-window-type: count-based 
+        
+      
+        
+management:
+  endpoint:
+    circuitbreakers:
+      enabled: true 
+    health:
+      show-details: always
+      
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+        - health
+        

@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: RegisterAPI
+server:
+  port: 5050
+  
+  
+eureka:
+  instance:
+    hostname: localhost

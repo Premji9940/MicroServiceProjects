@@ -1,0 +1,4 @@
+spring.application.name=ConfigServerWithExternalConfigurationFile
+
+spring.cloud.config.uri=https://github.com/Premji9940/ConfigFileForConfigServer.git
+spring.cloud.config.server.bootstrap=true

@@ -1,0 +1,25 @@
+package com.nt;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+@RestController
+public class ConsumerRest {
+	
+	
+	private static final String URL="http://localhost:5050/consumer";
+
+	
+	@GetMapping("/producer")
+	public ResponseEntity<String> callProducer() {
+
+		RestTemplate rest=new RestTemplate();
+		ResponseEntity<String> result = rest.getForEntity(URL, String.class);
+		String body = result.getBody();
+		return new ResponseEntity<String>(body,HttpStatus.OK);
+	}
+
+}

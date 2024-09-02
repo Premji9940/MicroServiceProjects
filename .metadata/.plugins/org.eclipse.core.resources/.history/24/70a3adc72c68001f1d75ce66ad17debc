@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: CircuitBreakerRertryLogic
+server: 
+  port: 6060
+  
+resilience4j:
+  retry:
+    instances:
+      consumer:
+        max-attempts: 5
+        wait-duration: 10s
+        
+management:
+  endpoint:
+    circuitbreakers:
+      enabled: true 
+      
+  health:
+    circuitbreakers:
+      enabled: true

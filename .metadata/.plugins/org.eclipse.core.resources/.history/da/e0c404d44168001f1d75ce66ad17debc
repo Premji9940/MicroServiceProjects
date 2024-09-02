@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: CircuitBreakerRertryLogic
+server: 
+  port: 6060
+  
+resilience4j:
+  retry:
+    instances:
+      UserService:
+        max-attempts: 5
+        wait-duration: 10s
+  circuitbreaker:
+    instances:
+      UserService:
+        register-health-indicator: true
+        event-consumer-buffer-size: 5
+        failure-rate-threshold: 50  #to make circute breaker closed state after 50% failure requests
+        minimum-number-of-calls: 5  
+        automatic-transition-from-open-to-half-open-enabled: true #it makes automatically from open to half open state after certain amount of time
+        wait-duration-in-open-state: 5s # it makes how much time circuit breaker in open state
+        permitted-number-of-calls-in-half-open-state: 3 # it makes circuit breaker allows only 3 calls in circuit breaker in half open state
+        sliding-window-size: 10
+        sliding-window-type: count-based 
+        
+      
+        
+management:
+  endpoint:
+    circuitbreakers:
+      enabled: true 
+    health:
+      show-details: always
+      
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+        - health
+        

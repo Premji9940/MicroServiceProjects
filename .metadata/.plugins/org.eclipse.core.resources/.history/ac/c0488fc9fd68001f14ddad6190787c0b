@@ -1,0 +1,48 @@
+package com.nt;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "spring.datasource")
+
+public class DataSourceProperties {
+	
+	private String driverClassName;
+	private String url;
+	private String username;
+	private String password;
+	@Override
+	public String toString() {
+		return "DataSourceProperties [driverClassName=" + driverClassName + ", url=" + url + ", username=" + username
+				+ ", password=" + password + "]";
+	}
+	public String getDriverClassName() {
+		return driverClassName;
+	}
+	public void setDriverClassName(String driverClassName) {
+		System.out.println("DataSourceProperties.setDriverClassName()");
+		this.driverClassName = driverClassName;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		System.out.println("DataSourceProperties.setUrl()");
+		this.url = url;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		System.out.println("DataSourceProperties.setUsername()");
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		System.out.println("DataSourceProperties.setPassword()");
+		this.password = password;
+	}
+	
+
+}

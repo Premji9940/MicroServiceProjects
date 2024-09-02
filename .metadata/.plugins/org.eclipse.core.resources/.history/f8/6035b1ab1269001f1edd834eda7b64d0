@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: RegisterAPI
+  config:
+    import:
+    - configserver:http://localhost:9090/
+server:
+  port: 5050
+  
+  
+eureka:
+  instance:
+    hostname: localhost
+    

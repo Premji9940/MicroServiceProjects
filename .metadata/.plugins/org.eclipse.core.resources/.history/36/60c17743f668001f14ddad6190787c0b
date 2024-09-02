@@ -1,0 +1,4 @@
+spring.application.name=ConfigServerWithExternalConfigurationFile
+server.port=8888
+spring.cloud.config.server.git.uri=https://github.com/Premji9940/ConfigFileForConfigServer.git
+

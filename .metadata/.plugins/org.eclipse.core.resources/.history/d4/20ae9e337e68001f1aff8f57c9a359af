@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: LoginAPI
+server:
+  port: 6060
+  
+eureka:
+  instance:
+    hostname: localhost

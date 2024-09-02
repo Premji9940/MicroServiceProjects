@@ -1,0 +1,23 @@
+package com.nt;
+
+class A{
+	public static final double PI=3.14;	
+	private class B{		
+		public Double getPI() {
+			return PI;
+		}
+	}
+	
+	
+}
+
+public class InnerClasses {
+
+	public static void main(String[] args) {
+	A.B ab=new A().new B();
+	System.out.println(ab.getPI());
+	
+
+	}
+
+}

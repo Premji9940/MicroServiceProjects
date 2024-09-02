@@ -1,0 +1,22 @@
+package com.nt;
+
+public class SwasticPattern {
+
+	public static void main(String[] args) {
+		
+		int n=5;
+		
+		
+		for(int rows=1;rows<=n;rows++) {
+			
+			for(int cols=1;cols<=n;cols++) {
+				
+				if(cols==rows || cols+rows==n+1)
+					System.out.print("*");
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+	}
+
+}

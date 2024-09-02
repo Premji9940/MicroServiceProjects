@@ -1,0 +1,16 @@
+package com.nt.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nt.entity.Movie;
+import com.nt.repo.MovieRepo;
+@Service
+public class MovieService {
+
+	@Autowired private MovieRepo repo;
+	
+	public String save(Movie m) {
+		return "Movie Saved with "+ repo.save(m);
+	}
+}

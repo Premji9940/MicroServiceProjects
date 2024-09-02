@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: APIGateWay
+  cloud:
+    gateway:
+      enabled: true
+      
+      
+      
+      routes[0]:
+        id  : LOGINAPI
+        uri : lb://LOGINAPI
+        predicates[0]: Path=/login/**
+      
+#       routes[0]:
+#         id: LoginAPI
+#         uri: lb://LoginAPI
+#         predicates[0]: Path=/login/**
+      routes[1]:
+         id: REGISTERAPI
+         uri: lb://REGISTERAPI
+         predicates[0]: Path=/register/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5000/eureka/
+      
+     
+management:
+  endpoint:
+    gateway:
+      enabled: true
+      
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      
+
+server:
+  port: 4040
+  
+  

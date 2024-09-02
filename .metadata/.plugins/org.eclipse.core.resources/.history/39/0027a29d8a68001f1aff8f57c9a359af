@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: LoginAPI
+  cloud:
+    config:
+      uri:
+      - optional:config:native
+  profiles:
+    active:
+    - native
+server:
+  port: 6060
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5000/eureka/
+      

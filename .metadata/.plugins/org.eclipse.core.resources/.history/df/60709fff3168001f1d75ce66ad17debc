@@ -1,0 +1,39 @@
+package com.nt;
+
+import java.util.Date;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import io.github.resilience4j.retry.annotation.Retry;
+
+@RestController
+public class ConsumerRest {
+	
+	
+	private static final String URL="http://localhost:5050/producer";
+	
+	
+public static final String USER_SERVICE="UserService";
+int count=1;
+	
+	@GetMapping("/consumer")
+	@Retry(name = USER_SERVICE,fallbackMethod = "getFallBackResponse")
+	public String callProducer() {
+		System.out.println(" producer Method calling Producer for "+count++ +" Time ON "+ new Date());
+
+		RestTemplate rest=new RestTemplate();
+		ResponseEntity<String> result = rest.getForEntity(URL, String.class);
+		String body = result.getBody();
+		return body;
+	}
+	//Fall Back Method
+	
+	public String getFallBackResponse(Exception e) {
+		System.out.println("ConsumerRest.fallBack()");
+		return "Iam from fall back Method";
+	}
+
+}

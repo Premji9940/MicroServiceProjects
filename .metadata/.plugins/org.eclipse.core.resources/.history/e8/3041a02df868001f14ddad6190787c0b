@@ -1,0 +1,15 @@
+package com.nt.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.nt.entity.Movie;
+import com.nt.repo.MovieRepo;
+
+public class MovieService {
+
+	@Autowired private MovieRepo repo;
+	
+	public String save(Movie m) {
+		return "Movie Saved with "+ repo.save(m);
+	}
+}
